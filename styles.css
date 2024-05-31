@@ -1,0 +1,125 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #000000, #535353);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.stopwatch {
+    background: #000000;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgb(222, 222, 222);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 20px rgb(0, 0, 0), 0 0 40px rgb(255, 255, 255), 0 0 60px rgb(0, 0, 0);
+    }
+    50% {
+        box-shadow: 0 0 40px rgb(255, 255, 255), 0 0 80px rgb(0, 0, 0), 0 0 100px rgb(255, 255, 255);
+    }
+    100% {
+        box-shadow: 0 0 20px rgb(0, 0, 0), 0 0 40px rgb(255, 255, 255), 0 0 60px rgb(0, 0, 0);
+    }
+}
+
+.stopwatch::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%);
+    animation: rotate 6s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.stopwatch h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+#display {
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.btn {
+    background: #4e54c8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.btn:hover {
+    background: #373bbf;
+}
+
+#laps {
+    margin-top: 30px;
+    padding: 0;
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+#laps li {
+    background: #f0f0f0;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: #333;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#laps li span {
+    font-weight: bold;
+}
